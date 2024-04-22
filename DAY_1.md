@@ -108,7 +108,38 @@ There are (3) Switching modes
         -store and forward mode = accepts and analyzes the entire frame before forwarding it to its destination. It takes more time to examine the entire frame, but it allows the switch to catch certain frame errors and collisions and keep them from propagating bad frames through the network. 
 
 
+## CAM Table Overflow/Media Access Control (MAC) Attack
 
+        -sends frames with FAKE source MAC address to the switch
+
+        -causes the switch to fill table with FAKE addresses
+
+        -the switch will not be able to learn valid MAC addresses
+
+## Describe MAC addressing 
+
+        length: 48-bit | 6 byte | 12 HEX
+        Format :
+        Windows : 11-22-33-44-55-66  (dashed are windows)
+        Linux: 12:34:56:78:91:22 (collon are linux)
+        Cisco : 1234.1245.4567 (. are Cisco )
+
+## MAC address types 
+
+        -unicast: one to one 
+                -8th bit is off
+        -multicast: one to many
+                -8th bit is on 
+        Broadcast: one to all 
+                -All bits on
+## MAC spoofing 
+        -could not be changed at first
+        - used to be called 
+                -Hardware 
+                -firmware
+                -burned in
+
+                
     
 
 
