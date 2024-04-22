@@ -32,7 +32,37 @@
 
         - rouge DHCP = A malicious person can setup a Rougue DHCP server to assign                   addresses for a particular network. In these configurations the attacker can             assign whatever they want for the Gateway, DNS suffix and DNS server                     addresses
         
-        - evil twin = 
+        - evil twin = cant find info on FG probably didnt need to type this..
+    
         
         - DHCP starvation = When a malicious user has to compete with the legitimate               DHCP server for address assignments, the attacker can flood the DHCP server              with several bogus DHCP requests
-        
+
+
+## ICMPV4 Traceroute
+
+        - Identifies hops between the source and the destination
+        - usues incrementing TTLs
+        - Hops return an ICMP Type 11 Time exceeded message when TTL reaches Zero
+        - continues until it reaches target or 30 hops
+    
+## ICMPV4 Attacks 
+
+        - firewalking 
+        - oversized ICMP messages 
+        - ICMP redirects
+        - SMURF attack
+        - Map networrk w/ IP unrechables 
+        - ICMP Covert Channels 
+
+## IPV6 Neighbor Discovery Protocol (NDP)
+
+    - Router solicitation = type 133
+    - router advertisement = Type 134
+    - neighbor solicitation = Type 135
+    - neighbor advertisement = Type 136
+    - redirect = Type 137
+
+# Administrative Disance 
+
+    ![image](https://github.com/Draven0331/PeePee/assets/163061465/b9f94cd3-d92b-4e48-97ab-ecac3a80277c)
+
