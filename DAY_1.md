@@ -139,7 +139,52 @@ There are (3) Switching modes
                 -firmware
                 -burned in
 
-                
+## VLAN types   
+
+        -Default-VLAN 1
+        -Data - User Traffic
+        -Voice - VOIP Traffic
+        -Management- Switch and router management 
+        -Native - Untagged swith with router traffic
+        -802.Q is in the VLAN header
+
+## ARP Types 
+        
+        1 = request
+        2 = reply
+        
+        ARP (0 OP 1 and 2)
+        RARP (OP 3 and 4)
+        Proxy ARPO (OP 2)
+        Gratuitous ARP (OP 2)
+
+## ARP Cache
+
+        - all resolved MAC to IP resolutions
+        - If MAC is not in csche the ARP is used
+        -dynamic entries last from 2-20 min
+
+## MITM with ARP
+
+        -poison ARP cache with : 
+                -Gratuitous ARP
+                -Proxy ARP
+        -SCAPY example code 
     
+## VLAN Trunking Protocol (VTP)
 
+        - it is cisco proprietary 
+        - it has (3) modes:
+                -server
+                -client
+                -transparent
+                        -NO VLAN traffic just gets passed through 
+        -Vulnerabilities:
+                -can cause switches to dump all VLAN information
+                -Can cause a DOS as the switch will not support configured VLANS
+## dynamic trunking protocol (DTP)
 
+        - is a Cisco proprietary Layer 2 protocol
+        -  it dynamically negotiate trunking on a link between two switches running                 VLANS
+        -
+        
