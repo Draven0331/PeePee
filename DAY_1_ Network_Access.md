@@ -186,5 +186,43 @@ There are (3) Switching modes
 
         - is a Cisco proprietary Layer 2 protocol
         -  it dynamically negotiate trunking on a link between two switches running                 VLANS
-        -
+        -Vulnerabilities: 
+                - it is on by default
+                - can send crafted messages to form a VLAN trunk link 
+                - reccomended to:
+                        -Disable DTP
+                        -manually assign trunks 
+                
+## Explain CDP, FDP and LLDP and the security vulnerabilities
+
+        -CDP = is a Layer 2, Cisco proprietary protocol used to share information with                 other directly connected Cisco devices
+
+        -FDP =   is a proprietary data link layer protocol, originally developed by                      Foundry Networks, which was bought by Brocade. Similar to CDP, FDP                       enables Brocade devices to advertise to other directly connect 
+                Brocade devices on the network.
         
+        -LLDP = neighbor discovery protocol similar to CDP. LLDP also operates at layer                 2 and shares similar information as does CDP with directly connected                   devices that support LLDP.
+
+
+                - these leak valuable information
+                - it is in clear text
+                - it is enabled by default 
+                - you need to disable this globaly, and per interface.
+
+## Explain Port Security with its vulnerabilities
+
+        - there are (3) port security modes: 
+        
+                - shutdown (default) = Drops any frames with an unknown source                                                 addresses.
+              
+                - protect = Same as protect except it additionally creates a violation                              counter report.
+               
+                - restrict =  Places the interface into an "error-disabled" state                                     immediately and sends an SNMP trap notification. This is                                typically the default mode.
+        
+## Layer 2 Attack Mitigation Techniques
+
+        - shutdown unused ports
+        - enable port security
+        - static CAM entries
+        - static ARP entries 
+        - Disable  DTP negotiations
+        - manuallaly assifn access/trunk ports 
