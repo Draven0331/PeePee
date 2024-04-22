@@ -97,6 +97,16 @@ PHYSICAL : deals with the physical connection between devices. It defines the ha
         100 Gbps          .01ns
 
 
+## Switch Operation
+
+There are (3) Switching modes
+
+        -cut-through mode = only examines the destination address before forwarding it to its destination segment. This is the fastest switching mode but requires the interfaces to be the same speed.
+        
+        -fragrmet-free mode = read at least 64 bytes of the Ethernet frame before switching it to avoid forwarding Ethernet runt frames (Ethernet frames smaller than 64 bytes). A frame should have a minimum of 46 bytes of payload plus its 18-byte frame header.
+        
+        -store and forward mode = accepts and analyzes the entire frame before forwarding it to its destination. It takes more time to examine the entire frame, but it allows the switch to catch certain frame errors and collisions and keep them from propagating bad frames through the network. 
+
 
 
     
