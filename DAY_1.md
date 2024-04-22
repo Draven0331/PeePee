@@ -74,7 +74,31 @@ PHYSICAL : deals with the physical connection between devices. It defines the ha
     -IEEE 802.11
     -Bluetooth 
 
-    
+##  Network Devices
+
+        -Hubs
+        -Repeaters
+        -Swithches
+        -Routers
+
+## Ethernet Timing
+
+        
+        Speed	        Bit-time
+        
+        10 Mbps           100ns
+
+        100 Mbps          10ns
+        
+        1 Gbps            1ns
+
+        10 Gbps           .1ns
+
+        100 Gbps          .01ns
+
+
+
+
     
 
 
