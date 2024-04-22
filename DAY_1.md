@@ -72,4 +72,9 @@ PHYSICAL : deals with the physical connection between devices. It defines the ha
 
     -Ethernet Physical Layer Standards (IEEE 802.3)
     -IEEE 802.11
-    -Bluetooth
+    -Bluetooth 
+
+    
+    
+
+
