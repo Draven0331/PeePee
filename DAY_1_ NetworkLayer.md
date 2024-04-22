@@ -63,6 +63,17 @@
     - redirect = Type 137
 
 # Administrative Disance 
+helps the router determine the best route to take
 
-    ![image](https://github.com/Draven0331/PeePee/assets/163061465/b9f94cd3-d92b-4e48-97ab-ecac3a80277c)
+    connected =    0
+    static =       1
+    external BGP = 20
+    EIGRP =        90
+    OSPF =         110
+    IS-IS =        115
+    RIP =          120
+
+
+    
+    
 
