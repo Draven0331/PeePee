@@ -165,9 +165,91 @@ FTP(TCP 20/21)
                      -Complications with tunneling through SSH
                      -Passive FTP solves issues related to Active mode and is most often used in modern systems
 
+TFTP (UDP 69)
+
+              -Reliability provided at Application layer
+              -Used by routers and switched to transfer IOS and config files
+
+SMTP (TCP 25)
+
+              -Used to send email
+              -No encryption
+              -SMTP over TLS/SSL (SMTPS)
+                     -TCP Ports 587 and 465
+POP (TCP 110)
+       
+              -Receives email
+              -No sync with server
+              -No encryption
+              -POP3
+IMAP (TCP 143)
+
+              -Receives email
+              -Sync with server
+              -No encryption
+              -IMAP4
+
+DHCP (UDP 67/
+
+               **DHCPV4**
+                        -DORA
+
+                            -Discover (Broadcast)
+                            -Offer (Unicast)
+                            -Request (Broadcast)
+                            -Acknowlege (Unicast)
+                
+                 ** DHCPV6**
+               
+                 If Managed flag is set during SLAAC:
+
+                     -Solicit (Multicast)
+                     -Advertise (Unicast)
+                     -Request or Information Request (Multicast)
+                     -Reply (Unicast)         
+NTP (UDP 123)
+
+       -Stratum 0 - authoritative time source
+       -Up to Stratum 15
+       -Vulnerable to crafted packet injection
 
 
+SNMP (UDP 161/162)
+       
+       Versions:
+              SNMPv1 - RFC 1157    (Plaintext)
+              SNMPv2c - RFC 1441   (Plaintext)
+              SNMPv3 - RFC 3410                     
 
+       7 Message Types:
+
+              -Get Request
+              -Set Request
+              -Get Next
+              -Get Bulk
+              -Response
+              -Trap
+              -Inform
+
+RDP (TCP 3389)
+
+              -Developed by Microsoft (Open Standard)
+                     -No server software needed
+             
+              -Other Proprietary RDP software
+                     -Requires to have 3rd pary software installed
+KERBEROS (UDP 88)
+
+              -Secure network authentication protocol
+              -Clients obtain tickets to access services
+              -Mutual authentication
+              -Used by Active Directory
+LDAP(S) (TCP 389 AND 636)
+
+       -Client/server model
+       -Hierarchical
+       -Directory schema
+       -Unsecure and secure versions
 ## SSH ARCHITECTURE
 
               Client / Server / Session
@@ -180,7 +262,6 @@ FTP(TCP 20/21)
 
                      Session Key - Symmetric key created by the client and server to protect the session’s                                                  communication.
 
-
 ## SSH KEY CHANGE FIX
 
       - Copy/Paste the ssh-geygen message to remove the Host key from the known_hosts file
@@ -189,6 +270,12 @@ FTP(TCP 20/21)
 
       - When you re-connect it will prompt you to save the new Host key
 
+## AAA PROTOCOLS
 
+1. Authentication, Authorization, and Accounting
+2. For third party authentication
 
-
+       -TACACS (TCP 49) SIMPLE/EXTENDED
+       -RADIUS (UDP 1645/1646 AND 1812/1813)
+       -DIAMETER (UDP 1645/1646 AND 1812/1813)
+   
