@@ -55,7 +55,7 @@ SOCKS 5
               -IPV4 and IPV6 support
               -UDP support
 
-## Netwoek basic input output system (NETBIOS)
+## Network basic input output system (NETBIOS)
 
        -TCP 139 and UDP 137/138
        -Name Resolution (15 Characters)
