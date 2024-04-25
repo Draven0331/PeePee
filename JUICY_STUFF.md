@@ -20,4 +20,12 @@
 
  ## DSCP CONVERSION
 
-     if you are trying to figutrr out DSCP, multiply the number thry give you by 4
+     if you are trying to convert DSCP, multiply the number they give you by 4.
+
+     ex)
+        DSCP = 24 
+
+          24 * 4 = 96
+  
+    
+     
