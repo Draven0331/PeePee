@@ -213,7 +213,52 @@ Inside the socket.socket. function, you have these arguments, in order:
 
       s.sendto(packet, (dest_ip, 0))
 
-##
+## Python Hex encode script 
+
+        #!/usr/bin/python3
+        import socket
+        import binascii
+        # THIS CAN ASLO BE ACCOMPLISHED BY USING S = SOCKET.SOCKET()
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
+        ip_addr = '127.0.0.1'
+        port = 45678
+        s.connect((ip_addr, port))
+        message2 = b"are you still typing"
+        hidden_msg = binascii.hexlify(message2)
+        #message =(b"USMC > Navy > Space Forece > Dead\n")
+        s.send(hidden_msg)
+        decoded_msg = binascii.unhexlify(hidden_msg)
+        s.send(decoded_msg)
+        #IT IS RECCOMENDED THAT THE BUFFERSIZE USED WITH RECVFROM
+        data, conn = s.recvfrom(1024)
+        # IN ORDER TO RECIEVE A MESSAGE THAT IS SENT AS A BYTE-LIKE OBJECT
+        print(data.decode('utf-8'))
+        s.close()
+
+## BASE64 ENCODING AND DECODING
+
+
+        #!/usr/bin/python3
+        import socket
+        import binascii
+        import base64
+        # THIS CAN ASLO BE ACCOMPLISHED BY USING S = SOCKET.SOCKET()
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0)
+        ip_addr = '127.0.0.1'
+        port = 45678
+        s.connect((ip_addr, port))
+        message2 = b"are you still typing"
+        hidden_msg = base64.b64encode(message2)
+        #message =(b"USMC > Navy > Space Forece > Dead\n")
+        s.send(hidden_msg)
+        decoded_msg = base64.b64decode(hidden_msg)
+        s.send(decoded_msg)
+        #IT IS RECCOMENDED THAT THE BUFFERSIZE USED WITH RECVFROM
+        data, conn = s.recvfrom(1024)
+        # IN ORDER TO RECIEVE A MESSAGE THAT IS SENT AS A BYTE-LIKE OBJECT
+        print(data.decode('utf-8'))
+        s.close()
+
 
 
                
