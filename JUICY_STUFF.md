@@ -18,4 +18,6 @@
      - Offser is on from the 2nd until the last
      - offset = (MTU -(IHLx4))/8
 
-     
+ ## DSCP CONVERSION
+
+     if you are trying to figutrr out DSCP, multiply the number thry give you by 4
