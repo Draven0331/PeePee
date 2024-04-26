@@ -26,7 +26,49 @@
         DSCP = 24 
 
           24 * 4 = 96
-  
+
+## NMAP - scanning (you can use this in a tunnel)
+      
+      -Broadcast Ping/Ping sweep (-sP, -PE)
+    **-SYN scan (-sS)
+    **-Full connect scan (-sT)
+      -Null scan (-sN)
+      -FIN scan (-sF)
+      -XMAS tree scan (-sX)
+    **-UDP scan (-sU)
+    **-Idle scan (-sI)  (aka zombie)
+
+      -ACK/Window scan (-sA)
+      -RPC scan (-sR)
+      -FTP scan (-b)
+      -Decoy scan (-D)
+      -OS fingerprinting scan (-O)
+      -Version scan (-sV)
+      -Protocol ping (-PO)
+      
+  ## NMAP - OTHER OPTIONS
+
+      -PE - ICMP Ping
+    **-Pn - No Ping
+    
+          Discovery probes (-PE, -PP, -PM)
+
+## NMAP - TIME-OUT
+    
+        -T0 - Paranoid - 300 Sec
+        -T1 - Sneaky - 15 Sec
+        -T2 - Polite - 1 Sec
+        -T3 - Normal - 1 Sec
+      **-T4 - Aggresive - 500 ms
+        -T5 - Insane - 250 ms
+
+## NMAP - Scanning examples (you can use this in a tunnel)
+
+        
+      nmap -Pn -T4 172.16.82.106,112,110,112,113,114,115,126 -p 21-23,80 
+              (on the command above you can add mulitpul ips, and ports to get more info)
+
+
   ## NETCAT - TCP SCAN SCRIPT
 
     #!/bin/bash
@@ -131,5 +173,8 @@ File search
     find / -iname flag* 2> /dev/null  <---- iname is case sensitive
 
  
-    
+ ## PING SCANNING (ping sweeps will not work through dynamic tunnels)
+
+    for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+   
   
