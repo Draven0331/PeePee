@@ -76,7 +76,7 @@ p0f: Passive scanning of network traffic and packet captures.
       sudo p0f -i eth0
       sudo p0f -r test.pcap
 
- ## NMAP - scanning 
+ ## NMAP - scanning (you can use this in a tunnel)
       
       -Broadcast Ping/Ping sweep (-sP, -PE)
     **-SYN scan (-sS)
@@ -111,6 +111,13 @@ p0f: Passive scanning of network traffic and packet captures.
       **-T4 - Aggresive - 500 ms
         -T5 - Insane - 250 ms
 
+## NMAP - Scanning examples (you can use this in a tunnel)
+
+        
+      nmap -Pn -T4 172.16.82.106,112,110,112,113,114,115,126 -p 21-23,80 
+              (on the command above you can add mulitpul ips, and ports to get more info)
+
+              
 # Netcat- Scanning 
 
    syntax: nc [Options] [Target IP] [Target Port(s)]
@@ -264,4 +271,8 @@ File search
 
     find / -name hint* 2> /dev/null    
     find / -iname flag* 2> /dev/null   <---- iname is case sensitive 
-  
+
+## PING SCANNING (ping sweeps will not work through dynamic tunnels)
+
+    for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+
