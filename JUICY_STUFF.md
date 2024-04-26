@@ -67,3 +67,69 @@ Find what is running on a particular port
     nc -u 172.16.82.106 53
           
                 -u : To switch to UDP   
+ 
+  ##  NATIVE HOST TOOLS
+
+Show TCP/IP network configuration
+
+    Windows: ipconfig /all
+    Linux: ip address (ifconfig depreciated)
+    VyOS: show interface
+
+Show DNS configuration
+
+    Windows: ipconfig /displaydns
+    Linux: cat /etc/resolv.conf
+
+ Show ARP Cache
+
+    Windows: arp -a
+    Linux: ip neighbor (arp -a depreciated)  
+
+    Show network connections
+
+    Windows: netstat
+    Linux: ss (netstat depreciated)
+
+    Example options useful for both netstat and ss: -antp
+     
+      a = Displays all active connections and ports.
+      n = No determination of protocol names. Shows 22 not SSH.
+      t = Display only TCP connections.
+      u = Display only UDP connections.
+      p = Shows which processes are using which sockets.   
+
+Services File
+
+      Windows: %SystemRoot%\system32\drivers\etc\services
+      Linux/Unix: /etc/services     
+
+OS Information
+
+    Windows: systeminfo
+    Linux: uname -a and /etc/os-release  
+ Show Running Processes
+
+    Windows: tasklist
+    Linux: ps or top
+
+        Example options useful for ps: -elf
+        e = Show all running processes
+        l = Show long format view
+        f = Show full format listing  
+
+ Routing Table
+
+    Windows: route print
+    Linux: ip route (netstat -r deprecated)
+    VyOS: show ip route
+
+  
+File search
+
+    find / -name hint* 2> /dev/null
+    find / -iname flag* 2> /dev/null  <---- iname is case sensitive
+
+ 
+    
+  
