@@ -27,5 +27,43 @@
 
           24 * 4 = 96
   
+  ## NETCAT - TCP SCAN SCRIPT
+
+    #!/bin/bash
+    echo "Enter network address (e.g. 192.168.0): "
+    read net
+    echo "Enter starting host range (e.g. 1): "
+    read start
+    echo "Enter ending host range (e.g. 254): "
+    read end
+    echo "Enter ports space-delimited (e.g. 21-23 80): "
+    read ports
+    for ((i=$start; $i<=$end; i++))
+    do
+        nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open'
+    done
+
+## NETCAT - UDP SCAN SCRIPT
+
+    ## #!/bin/bash
+    echo "Enter network address (e.g. 192.168.0): "
+    read net
+    echo "Enter starting host range (e.g. 1): "
+    read start
+    echo "Enter ending host range (e.g. 254): "
+    read end
+    echo "Enter ports space-delimited (e.g. 21-23 80): "
+    read ports
+    for ((i=$start; $i<=$end; i++))
+    do
+        nc -nvzw1 $net.$i $ports 2>&1 | grep -E 'succ|open'
+    done  
     
-     
+  ## NETCAT - BANNER GRABBING
+Find what is running on a particular port
+
+    nc [Target IP] [Target Port]
+    nc 172.16.82.106 22
+    nc -u 172.16.82.106 53
+          
+                -u : To switch to UDP   
