@@ -73,3 +73,36 @@ Upload a file to a remote directory from a local directory
     
     $ scp -P 1111 secretstuff.txt student@172.16.82.106:
     
+## SCP SYNTAX W/ ALTERNATE SSHD
+
+Download a file from a remote directory to a local directory
+    
+    $ scp -P 1111 student@172.16.82.106:secretstuff.txt .
+Upload a file to a remote directory from a local directory
+    
+    $ scp -P 1111 secretstuff.txt student@172.16.82.106:
+
+## SCP SYNTAX THROUGH A TUNNEL
+Create a local port forward to target device
+    
+    $ ssh student@172.16.82.106 -L 1111:localhost:22 -NT
+Download a file from a remote directory to a local directory
+    
+    $ scp -P 1111 student@localhost:secretstuff.txt /home/student
+Upload a file to a remote directory from a local directory
+    
+    $ scp -P 1111 secretstuff.txt student@localhost:/home/student
+## SCP SYNTAX THROUGH A DYNAMIC PORT FORWARD
+
+Create a Dynamic Port Forward to target device
+    
+    $ ssh student@172.16.82.106 -D 9050 -NT
+Download a file from a remote directory to a local directory
+    
+    $ proxychains scp student@localhost:secretstuff.txt .
+Upload a file to a remote directory from a local directory
+    
+    $ proxychains scp secretstuff.txt student@localhost:
+
+   
+    
