@@ -33,16 +33,75 @@ Syntax
         or (just demonstrating that you can do differnt things)
 
         ssh -L <local bind port>:<tgt ip>:<tgt port> -p <alt port> <user>@<pivot ip> -NT
-EXAMPLE
 
-    Creates 1111 on the Internet_Host mapped to the localhost port 22 of Blue_DMZ_Host-1.
+## SSH KEY CHANGE FIX
+
+    ssh-keygen -f "/home/student/.ssh/known_hosts" -R "172.16.82.106"
+    
+    Copy/Paste the ssh-geygen message to remove the Host key from the known_hosts file
+EXAMPLE
+        
+        Creates 1111 on the Internet_Host mapped to Blue_INT_DMZ_Host-1 port 22 thru Blue_DMZ_Host-1.
 
     Internet_Host:
-    ssh student@172.16.1.15 -L 1111:localhost:22 -NT
+    
+    ssh student@172.16.1.15 -L 1111:172.16.40.10:22 -NT
 
     or
 
-    ssh -L 1111:localhost:22 student@172.16.1.15 -NT
+    ssh -L 1111:172.16.40.10:22 student@172.16.1.15 -NT
+ EXAMPLES FOR DIFFERENT PORTS
+     
+     Internet_Host:
 
+    ssh student@172.16.1.15 -L 1112:172.16.40.10:80 -NT
+    firefox localhost:1112
+    
+    ssh student@172.16.1.15 -L 1113:172.16.40.10:23 -NT
+    telnet localhost 1113
 
+    ssh student@172.16.1.15 -L 1113:172.16.40.10:3389 -NT
+    xfreerdp /v:localhost:1113 /u:student /p:password
 
+## SSH DYNAMIC PORT FORWARDING
+
+    ssh -D <port> -p <alt port> <user>@<pivot ip> -NT
+    
+    -Proxychains default port is 9050
+    -Creates a dynamic socks4 proxy that interacts alone, or with a previously established remote or local port forward.
+    -Allows the use of scripts and other userspace programs through the tunnel.
+    
+  ## SSH DYNAMIC PORT FORWARDING 1-STEP
+    Internet_Host:
+
+    ssh student@172.16.1.15 -D 9050 -NT
+
+    proxychains ./scan.sh
+    proxychains nmap -Pn 172.16.40.0/27 -p 21-23,80
+    proxychains ssh student@172.16.40.10
+    proxychains telnet 172.16.40.10
+    proxychains wget -r http://172.16.40.10
+    proxychains wget -r ftp://172.16.40.10  
+
+## SSH DYNAMIC PORT FORWARDING 2-STEP
+    Internet_Host:
+   
+    ssh student@172.16.1.15 -L 1111:172.16.40.10:22 -NT
+    ssh student@localhost -p 1111 -D 9050 -NT
+
+    proxychains ./scan.sh
+    proxychains nmap -Pn 172.16.82.96/27 -p 21-23,80
+    proxychains ssh student@172.16.82.106
+    proxychains telnet 172.16.82.106
+    proxychains wget -r http://172.16.82.106
+    proxychains wget -r ftp://172.16.82.106
+
+## SSH REMOTE PORT FORWARDING
+
+    Syntax
+
+    ssh -p <optional alt port> <user>@<remote ip> -R <remote bind port>:<tgt ip>:<tgt port> -NT
+
+    or
+
+    ssh -R <remote bind port>:<tgt ip>:<tgt port> -p <alt port> <user>@<remote ip> -NT
