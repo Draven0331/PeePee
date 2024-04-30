@@ -87,7 +87,7 @@ EXAMPLE
     Internet_Host:
    
     ssh student@172.16.1.15 -L 1111:172.16.40.10:22 -NT
-    ssh student@localhost -p 1111 -D 9050 -NT
+    ssh student@127.0.0.1 -p 1111 -D 9050 -NT
 
     proxychains ./scan.sh
     proxychains nmap -Pn 172.16.82.96/27 -p 21-23,80
