@@ -274,5 +274,5 @@ File search
 
 ## PING SCANNING (ping sweeps will not work through dynamic tunnels)
 
-    for i in {1..254}; do (ping -c 1 172.16.82.$i | grep "bytes from" &) ; done
+    for i in {1..254}; do (ping -c 1 172.16.82.$i 2> /dev/null | grep "bytes from" &) ; done
 
